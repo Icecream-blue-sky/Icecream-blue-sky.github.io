@@ -150,7 +150,7 @@
                 
                 <time class="level-item has-text-grey" datetime="2019-12-18T09:28:52.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2019-12-18</time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2019-12-18T10:13:44.249Z"><i class="far fa-calendar-check">&nbsp;</i>2019-12-18</time>
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2019-12-18T10:16:14.095Z"><i class="far fa-calendar-check">&nbsp;</i>2019-12-18</time>
                 
                 
                 <div class="level-item">
@@ -287,7 +287,7 @@
 <h3 id="18、给博客配置个人域名"><a href="#18、给博客配置个人域名" class="headerlink" title="18、给博客配置个人域名"></a>18、给博客配置个人域名</h3><h5 id="在阿里云买个域名"><a href="#在阿里云买个域名" class="headerlink" title="在阿里云买个域名"></a>在阿里云买个域名</h5><p>最好买.com结尾的，别的域名可能不受认可，可能会被当成违法网站封禁（据说，我瞎编的）。</p>
 <h5 id="给域名备案"><a href="#给域名备案" class="headerlink" title="给域名备案"></a>给域名备案</h5><p>未备案的域名在国内很容易被封禁。</p>
 <h5 id="买个ECS服务器"><a href="#买个ECS服务器" class="headerlink" title="买个ECS服务器"></a>买个ECS服务器</h5><p>由于有学生优惠，所以花了120多买了个云服务器，给域名备案时会自动将服务器关联到你购买的域名的。</p>
-<h5 id="将域名映射到你的博客"><a href="#将域名映射到你的博客" class="headerlink" title="将域名映射到你的博客"></a>将域名映射到你的博客</h5><p>转到你的域名界面<br><img src="/server1.png" align="center/"><br>添加解析<br><img src="/server2.png" align="center"><br>第一行记录值改为你的github博客地址。<br>然后在blog/source下新建CNAME文件，记住这个文件没有类型(新建txt，重命名将后缀删除即可)，里面写上自己购买的域名，我的是 zoutq.com。hexo g -d即可。</p>
+<h5 id="将域名映射到你的博客"><a href="#将域名映射到你的博客" class="headerlink" title="将域名映射到你的博客"></a>将域名映射到你的博客</h5><p>转到你的域名界面<br><img src="/images/server1.png" align="center/"><br>添加解析<br><img src="/images/server2.png" align="center"><br>第一行记录值改为你的github博客地址。<br>然后在blog/source下新建CNAME文件，记住这个文件没有类型(新建txt，重命名将后缀删除即可)，里面写上自己购买的域名，我的是 zoutq.com。hexo g -d即可。</p>
 <h3 id="19、hexo版本回退遇到的bug"><a href="#19、hexo版本回退遇到的bug" class="headerlink" title="19、hexo版本回退遇到的bug"></a>19、hexo版本回退遇到的bug</h3><p>之前遇到一个奇怪的bug，hexo 4.0.0配置icarus时，点击返回顶部按钮总是显示about blank，后来去hexo github上提交了issue才知道是版本问题，回退到了hexo 3.9.0。回退操作如下：<br>在你的博客根目录下使用命令</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo@3.9.0 --save</span><br></pre></td></tr></table></figure>
 
