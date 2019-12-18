@@ -20,7 +20,7 @@
 <meta property="og:description" content="博客配置环境如下：Win 10hexo 3.9.0hexo-helper-live2d@3.1.0icarus 2.6.0  1、更改文章页面为两栏布局主题默认是三栏布局，并且显示了很多的 widget ，但在阅读文章时显得有些拥挤。因此在文章页面，修改为两栏布局，并显示特定的 widget。修改includes/helpers/layout.js 12345678910    const wi">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
-<meta property="og:updated_time" content="2019-12-18T10:05:09.072Z">
+<meta property="og:updated_time" content="2019-12-18T10:08:49.479Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo-icarus博客更改记录">
 <meta name="twitter:description" content="博客配置环境如下：Win 10hexo 3.9.0hexo-helper-live2d@3.1.0icarus 2.6.0  1、更改文章页面为两栏布局主题默认是三栏布局，并且显示了很多的 widget ，但在阅读文章时显得有些拥挤。因此在文章页面，修改为两栏布局，并显示特定的 widget。修改includes/helpers/layout.js 12345678910    const wi">
@@ -148,7 +148,7 @@
                 
                 <time class="level-item has-text-grey" datetime="2019-12-18T09:28:52.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2019-12-18</time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2019-12-18T10:05:09.072Z"><i class="far fa-calendar-check">&nbsp;</i>2019-12-18</time>
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2019-12-18T10:08:49.479Z"><i class="far fa-calendar-check">&nbsp;</i>2019-12-18</time>
                 
                 
                 <div class="level-item">
@@ -177,7 +177,7 @@
             <blockquote>
 <p>博客配置环境如下：<br>Win 10<br>hexo 3.9.0<br><a href="mailto:hexo-helper-live2d@3.1.0" target="_blank" rel="noopener">hexo-helper-live2d@3.1.0</a><br>icarus 2.6.0</p>
 </blockquote>
-<h2 id="1、更改文章页面为两栏布局"><a href="#1、更改文章页面为两栏布局" class="headerlink" title="1、更改文章页面为两栏布局"></a>1、更改文章页面为两栏布局</h2><p>主题默认是三栏布局，并且显示了很多的 widget ，但在阅读文章时显得有些拥挤。因此在文章页面，修改为两栏布局，并显示特定的 widget。<br>修改includes/helpers/layout.js</p>
+<h3 id="1、更改文章页面为两栏布局"><a href="#1、更改文章页面为两栏布局" class="headerlink" title="1、更改文章页面为两栏布局"></a>1、更改文章页面为两栏布局</h3><p>主题默认是三栏布局，并且显示了很多的 widget ，但在阅读文章时显得有些拥挤。因此在文章页面，修改为两栏布局，并显示特定的 widget。<br>修改includes/helpers/layout.js</p>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">    <span class="hljs-keyword">const</span> widgets = hexo.extend.helper.get(<span class="hljs-string">'get_config'</span>).bind(<span class="hljs-keyword">this</span>)(<span class="hljs-string">'widgets'</span>);</span><br><span class="line">-    <span class="hljs-keyword">return</span> widgets.filter(<span class="hljs-function"><span class="hljs-params">widget</span> =&gt;</span> widget.hasOwnProperty(<span class="hljs-string">'position'</span>) &amp;&amp; widget.position === position);</span><br><span class="line">+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.page.layout !== <span class="hljs-string">'post'</span>) &#123;</span><br><span class="line">+        <span class="hljs-keyword">return</span> widgets.filter(<span class="hljs-function"><span class="hljs-params">widget</span> =&gt;</span> widget.hasOwnProperty(<span class="hljs-string">'position'</span>) &amp;&amp; widget.position === position);</span><br><span class="line">+    &#125;</span><br><span class="line">+    <span class="hljs-keyword">if</span> (position === <span class="hljs-string">'left'</span>) &#123;</span><br><span class="line">+        <span class="hljs-keyword">return</span> widgets.filter(<span class="hljs-function"><span class="hljs-params">widget</span> =&gt;</span> widget.hasOwnProperty(<span class="hljs-string">'position'</span>) &amp;&amp; (widget.type === <span class="hljs-string">'toc'</span> || widget.type === <span class="hljs-string">'profile'</span>));</span><br><span class="line">+    &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">+        <span class="hljs-keyword">return</span> []</span><br><span class="line">+    &#125;</span><br></pre></td></tr></table></figure>
 
 <p>但两栏整体宽度跟三栏不同。因此强制指定为三栏布局，并且修改相应的宽度，这样所有的页面侧边栏宽度保持一致。<br>修改layout/common/widget.ejs</p>
@@ -526,119 +526,119 @@
         <a class="is-flex" href="#1、更改文章页面为两栏布局">
         <span class="has-mr-6">1</span>
         <span>1、更改文章页面为两栏布局</span>
-        </a><ul class="menu-list"><li>
+        </a></li><li>
         <a class="is-flex" href="#2、优化文章标题布局">
-        <span class="has-mr-6">1.1</span>
+        <span class="has-mr-6">2</span>
         <span>2、优化文章标题布局</span>
         </a></li><li>
         <a class="is-flex" href="#3、增加版权说明">
-        <span class="has-mr-6">1.2</span>
+        <span class="has-mr-6">3</span>
         <span>3、增加版权说明</span>
         </a></li><li>
         <a class="is-flex" href="#4、增加标题自动计数">
-        <span class="has-mr-6">1.3</span>
+        <span class="has-mr-6">4</span>
         <span>4、增加标题自动计数</span>
         </a></li><li>
         <a class="is-flex" href="#5、默认显示目录">
-        <span class="has-mr-6">1.4</span>
+        <span class="has-mr-6">5</span>
         <span>5、默认显示目录</span>
         </a></li><li>
         <a class="is-flex" href="#6、页面footer显示一组icon">
-        <span class="has-mr-6">1.5</span>
+        <span class="has-mr-6">6</span>
         <span>6、页面footer显示一组icon</span>
         </a></li><li>
         <a class="is-flex" href="#7、可以配置文章开头是否显示图片">
-        <span class="has-mr-6">1.6</span>
+        <span class="has-mr-6">7</span>
         <span>7、可以配置文章开头是否显示图片</span>
         </a></li><li>
         <a class="is-flex" href="#8、修改博客语言为中文">
-        <span class="has-mr-6">1.7</span>
+        <span class="has-mr-6">8</span>
         <span>8、修改博客语言为中文</span>
         </a></li><li>
         <a class="is-flex" href="#9、给博客增加点击爱心效果">
-        <span class="has-mr-6">1.8</span>
+        <span class="has-mr-6">9</span>
         <span>9、给博客增加点击爱心效果</span>
         </a></li><li>
         <a class="is-flex" href="#10、增加看板娘插件live2D（可爱的黑猫）">
-        <span class="has-mr-6">1.9</span>
+        <span class="has-mr-6">10</span>
         <span>10、增加看板娘插件live2D（可爱的黑猫）</span>
         </a><ul class="menu-list"><li>
         <a class="is-flex" href="#安装hexo-helper-live2d">
-        <span class="has-mr-6">1.9.1</span>
+        <span class="has-mr-6">10.1</span>
         <span>安装hexo-helper-live2d</span>
         </a></li><li>
         <a class="is-flex" href="#安装你看中的模型">
-        <span class="has-mr-6">1.9.2</span>
+        <span class="has-mr-6">10.2</span>
         <span>安装你看中的模型</span>
         </a></li><li>
         <a class="is-flex" href="#个性化配置你的模型">
-        <span class="has-mr-6">1.9.3</span>
+        <span class="has-mr-6">10.3</span>
         <span>个性化配置你的模型</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#11、配置你的about-tag界面">
-        <span class="has-mr-6">1.10</span>
+        <span class="has-mr-6">11</span>
         <span>11、配置你的about tag界面</span>
         </a></li><li>
         <a class="is-flex" href="#12、添加busuanzi计数，显示网站运行时间和访问人数">
-        <span class="has-mr-6">1.11</span>
+        <span class="has-mr-6">12</span>
         <span>12、添加busuanzi计数，显示网站运行时间和访问人数</span>
         </a><ul class="menu-list"><li>
         <a class="is-flex" href="#显示访问人数和次数">
-        <span class="has-mr-6">1.11.1</span>
+        <span class="has-mr-6">12.1</span>
         <span>显示访问人数和次数</span>
         </a></li><li>
         <a class="is-flex" href="#显示网站运行时间">
-        <span class="has-mr-6">1.11.2</span>
+        <span class="has-mr-6">12.2</span>
         <span>显示网站运行时间</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#13、增加profile下面的空间，可以放上自己想说的话">
-        <span class="has-mr-6">1.12</span>
+        <span class="has-mr-6">13</span>
         <span>13、增加profile下面的空间，可以放上自己想说的话</span>
         </a></li><li>
         <a class="is-flex" href="#14、置顶文章">
-        <span class="has-mr-6">1.13</span>
+        <span class="has-mr-6">14</span>
         <span>14、置顶文章</span>
         </a></li><li>
         <a class="is-flex" href="#15、添加51LA统计">
-        <span class="has-mr-6">1.14</span>
+        <span class="has-mr-6">15</span>
         <span>15、添加51LA统计</span>
         </a></li><li>
         <a class="is-flex" href="#16、添加评论插件valine，并配置邮件提醒（valine-admin">
-        <span class="has-mr-6">1.15</span>
+        <span class="has-mr-6">16</span>
         <span>16、添加评论插件valine，并配置邮件提醒（valine-admin)</span>
         </a></li><li>
         <a class="is-flex" href="#17、配置网站头像和logo">
-        <span class="has-mr-6">1.16</span>
+        <span class="has-mr-6">17</span>
         <span>17、配置网站头像和logo</span>
         </a></li><li>
         <a class="is-flex" href="#18、给博客配置个人域名">
-        <span class="has-mr-6">1.17</span>
+        <span class="has-mr-6">18</span>
         <span>18、给博客配置个人域名</span>
         </a><ul class="menu-list"><li>
         <a class="is-flex" href="#在阿里云买个域名">
-        <span class="has-mr-6">1.17.1</span>
+        <span class="has-mr-6">18.1</span>
         <span>在阿里云买个域名</span>
         </a></li><li>
         <a class="is-flex" href="#给域名备案">
-        <span class="has-mr-6">1.17.2</span>
+        <span class="has-mr-6">18.2</span>
         <span>给域名备案</span>
         </a></li><li>
         <a class="is-flex" href="#买个ECS服务器">
-        <span class="has-mr-6">1.17.3</span>
+        <span class="has-mr-6">18.3</span>
         <span>买个ECS服务器</span>
         </a></li><li>
         <a class="is-flex" href="#将域名映射到你的博客">
-        <span class="has-mr-6">1.17.4</span>
+        <span class="has-mr-6">18.4</span>
         <span>将域名映射到你的博客</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#19、hexo版本回退遇到的bug">
-        <span class="has-mr-6">1.18</span>
+        <span class="has-mr-6">19</span>
         <span>19、hexo版本回退遇到的bug</span>
         </a></li><li>
         <a class="is-flex" href="#20、待解决问题">
-        <span class="has-mr-6">1.19</span>
+        <span class="has-mr-6">20</span>
         <span>20、待解决问题</span>
-        </a></li></ul></li></ul>
+        </a></li></ul>
             </div>
         </div>
     </div>
