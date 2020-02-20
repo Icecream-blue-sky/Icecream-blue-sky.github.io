@@ -20,7 +20,7 @@
 <meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;从零开始学习CNN系列，是本人学习李宏毅老师的深度学习课、cs231n及吴恩达老师的深度学习课后总结的适合无基础小白入门深度学习的教程，会跟随本人的炼丹水平不断更改，如有错误，请多加指正。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/deep_learning/thumbnail.png">
-<meta property="og:updated_time" content="2020-02-19T12:43:48.921Z">
+<meta property="og:updated_time" content="2020-02-20T13:56:04.467Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从零开始学习CNN系列——（一）基本概念">
 <meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;从零开始学习CNN系列，是本人学习李宏毅老师的深度学习课、cs231n及吴恩达老师的深度学习课后总结的适合无基础小白入门深度学习的教程，会跟随本人的炼丹水平不断更改，如有错误，请多加指正。">
@@ -157,7 +157,7 @@
                 
                 <time class="level-item has-text-grey" datetime="2020-02-04T06:44:11.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-02-04</time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-19T12:43:48.921Z"><i class="far fa-calendar-check">&nbsp;</i>2020-02-19</time>
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-20T13:56:04.467Z"><i class="far fa-calendar-check">&nbsp;</i>2020-02-20</time>
                 
                 
                 <div class="level-item">
@@ -170,7 +170,7 @@
                     <i class="far fa-clock"></i>&nbsp;
                     
                     
-                    4 分钟 读完 (大约 597 个字)
+                    10 分钟 读完 (大约 1547 个字)
                 </span>
                 
                 
@@ -207,19 +207,32 @@
 <ul>
 <li>step1:建立模型，确定函数的类型，如一元线性模型：<br>$$y=b+w*x$$&nbsp;&nbsp;&nbsp;&nbsp;由于参数b和w有无限种可能，所以我们找到的只是一个函数集合(a set of function)。</li>
 <li>step2:针对每个函数(function)，利用训练集数据计算拟合度，即描述这个选定函数的好坏。最常用的是L2（均方误差函数MSE）：$$<br>M S E=\sum_{i=1}^{n}\left(y_{i}-y_{i}^{p}\right)^{2}<br>$$其中$y_{i}$代表真实值，$y_{i}^{p}$代表预测值。MSE计算的是预测值和真实值的误差。</li>
-<li>step3:寻找拟合度最高即误差最小的函数$f^{<em>}$。<br>&nbsp;&nbsp;&nbsp;&nbsp;$f^{</em>}$即是训练结果，最终用来识别图中猫的函数也正是$f^{*}$。</li>
+<li>step3:寻找拟合度最高即误差最小的函数 $f^{<em>}$ 。<br>&nbsp;&nbsp;&nbsp;&nbsp; $f^{</em>}$ 即是训练结果，最终用来识别图中猫的函数也正是 $f^{*}$ 。</li>
 </ul>
 <h3 id="3、机器学习的分类"><a href="#3、机器学习的分类" class="headerlink" title="3、机器学习的分类"></a>3、机器学习的分类</h3><center>
 <img src="/images/deep_learning/learning_map.png" width="50%" height="50%">
 </center>
 
-<p>&nbsp;&nbsp;&nbsp;&nbsp;机器学习按学习方式分类可分为：<br></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;机器学习按学习方式分类可分为以下几种，其分类依据是训练数据的标注(label)情况：<br></p>
 <ul>
-<li><strong>监督式学习(Supervised Learning)</strong>：</li>
-<li><strong>半监督式学习(Semi-supervised Learning)</strong>：</li>
-<li><strong>无监督式学习(Unsupervised Learning)</strong>：</li>
-<li><strong>强化学习(Reinforcement Learning)</strong>：</li>
-<li><strong>迁移学习(Transfer Learning)</strong>：<br>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li><strong>监督式学习(Supervised Learning)</strong>：训练数据都被人为标注(label)。如我们的手写数字识别中：训练集(MINIST)中每张手写图片都被标注了对应的数字。</li>
+<li><strong>半监督式学习(Semi-supervised Learning)</strong>：训练数据部分被人为标注，而其他部分没有任何标注，只有单纯的数据。如猫与狗的图片识别：只有部分猫与狗的图片被标注了是猫或狗，而另一部分只有图片，未人为标注，训练时，电脑并不知道其是猫还是狗。</li>
+<li><strong>无监督式学习(Unsupervised Learning)</strong>：训练数据完全无标注。还是拿猫与狗的图片识别做例子：只把一堆没有任何标注的猫与狗图片丢给电脑，训练电脑让其自动识别猫与狗。</li>
+<li><strong>迁移学习(Transfer Learning)</strong>：结合半监督式学习理解，训练数据部分被人为标注，而另一部数据与你要训练的目的完全无关，其可能被标注或未被标注。如猫与狗的识别问题中，部分猫与狗的图片被正常标注，而另一部分图片可能是被标注的大象图片，或者未标注的老虎图片，将这些混合的图片作为input，训练电脑识别猫与狗。</li>
+<li><strong>强化学习(Reinforcement Learning)</strong>：强化学习的思想可以以游戏为例：如果在游戏中采取某种策略可以取得较高的得分，那么就进一步「强化」这种策略，以期继续取得较好的结果。我们日常打游戏如王者荣耀、LOL、星际争霸2正是采取这种思路。<br>强化学习概念很复杂，很难简短地概括，网上查询了很多资料，但最终还是发现李老师的”Learning from critics”是理解得最好的。将其于监督式学习比较可以更好地理解强化学习：<center>
+<img src="/images/deep_learning/rl.png" width="50%" height="50%">
+</center>
+监督式学习(SL)充当电脑的老师，告诉电脑具体棋局对应的棋子具体的落点。
+强化学习(RL):只是让电脑自己对弈，随意移动，不告诉具体棋局的应对方式，得到的只有最后棋局是否赢了的反馈，如果赢了，电脑只知道这局棋下得好，哪步棋、哪个策略好完全不知道。
+### 4、机器学习需要解决的三类问题
+&nbsp;&nbsp;&nbsp;&nbsp;以上介绍的几种不同的学习方式，都需要解决下列三类问题，才能完成一个模型的训练。</li>
+<li><h4 id="回归问题-Regression"><a href="#回归问题-Regression" class="headerlink" title="回归问题(Regression)"></a>回归问题(Regression)</h4>回归问题与分类问题最大的区别在于：回归问题的输出值是连续的，而分类问题是离散的。回归问题(Regression)最常见的情形就是我们初高中学过的线性回归，例如一元线性回归：给定一系列input data，$x_{1.2….n}$与$y_{1.2….n}$，线性回归得到一个模型：$$y=b+a*x$$每个输入的x都对应一个y，y值是连续的。</li>
+<li><h4 id="分类问题-Classification"><a href="#分类问题-Classification" class="headerlink" title="分类问题(Classification)"></a>分类问题(Classification)</h4>分类问题与回归问题本质相同，唯一区别是输出值是离散的。例如二分类，只输出两个值。</li>
+<li><h4 id="结构化学习问题-Structured-Learning"><a href="#结构化学习问题-Structured-Learning" class="headerlink" title="结构化学习问题(Structured Learning)"></a>结构化学习问题(Structured Learning)</h4>结构化学习问题的输出值和以上两类都不同，它输出的是一些具有一定结构的东西，可能是一句话， 一张图等等。如最常见的机器翻译(Machine Translation)：<center>
+<img src="/images/deep_learning/structured_learning.jpg" width="50%" height="50%">
+</center> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其输出的是一句话。
+&nbsp;&nbsp;&nbsp;&nbsp;</li>
 </ul>
 
         </div>
@@ -458,7 +471,19 @@
         <a class="is-flex" href="#3、机器学习的分类">
         <span class="has-mr-6">1.3</span>
         <span>3、机器学习的分类</span>
-        </a></li></ul></li></ul>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#回归问题-Regression">
+        <span class="has-mr-6">1.3.1</span>
+        <span>回归问题(Regression)</span>
+        </a></li><li>
+        <a class="is-flex" href="#分类问题-Classification">
+        <span class="has-mr-6">1.3.2</span>
+        <span>分类问题(Classification)</span>
+        </a></li><li>
+        <a class="is-flex" href="#结构化学习问题-Structured-Learning">
+        <span class="has-mr-6">1.3.3</span>
+        <span>结构化学习问题(Structured Learning)</span>
+        </a></li></ul></li></ul></li></ul>
             </div>
         </div>
     </div>
