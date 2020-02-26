@@ -8,21 +8,21 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>从零开始学习CNN系列——（一）基本概念 - Icecream</title>
+<title>从零开始学习CNN系列——（一）机器学习与深度学习的宏观理解 - Icecream</title>
 
 
     <meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;从零开始学习CNN系列，是本人学习李宏毅老师的深度学习课、cs231n及吴恩达老师的深度学习课后总结的适合无基础小白入门深度学习的教程，会跟随本人的炼丹水平不断更改，如有错误，请多加指正。">
 <meta name="keywords" content="深度学习,CNN">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从零开始学习CNN系列——（一）基本概念">
-<meta property="og:url" content="http://yoursite.com/2020/02/04/从零开始学习CNN系列——（一）基本概念/index.html">
+<meta property="og:title" content="从零开始学习CNN系列——（一）机器学习与深度学习的宏观理解">
+<meta property="og:url" content="http://yoursite.com/2020/02/04/从零开始学习CNN系列——（一）机器学习和深度学习的宏观理解/index.html">
 <meta property="og:site_name" content="Icecream">
 <meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;从零开始学习CNN系列，是本人学习李宏毅老师的深度学习课、cs231n及吴恩达老师的深度学习课后总结的适合无基础小白入门深度学习的教程，会跟随本人的炼丹水平不断更改，如有错误，请多加指正。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/deep_learning/thumbnail.png">
-<meta property="og:updated_time" content="2020-02-21T09:43:15.274Z">
+<meta property="og:updated_time" content="2020-02-26T03:03:31.347Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从零开始学习CNN系列——（一）基本概念">
+<meta name="twitter:title" content="从零开始学习CNN系列——（一）机器学习与深度学习的宏观理解">
 <meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;从零开始学习CNN系列，是本人学习李宏毅老师的深度学习课、cs231n及吴恩达老师的深度学习课后总结的适合无基础小白入门深度学习的教程，会跟随本人的炼丹水平不断更改，如有错误，请多加指正。">
 <meta name="twitter:image" content="http://yoursite.com/images/deep_learning/thumbnail.png">
 
@@ -88,7 +88,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo3.jpg" alt="从零开始学习CNN系列——（一）基本概念" height="28">
+                <img src="/images/logo3.jpg" alt="从零开始学习CNN系列——（一）机器学习与深度学习的宏观理解" height="28">
             
             </a>
         </div>
@@ -141,14 +141,14 @@
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="/images/deep_learning/thumbnail.png" alt="从零开始学习CNN系列——（一）基本概念">
+            <img class="thumbnail" src="/images/deep_learning/thumbnail.png" alt="从零开始学习CNN系列——（一）机器学习与深度学习的宏观理解">
         </span>
     </div>
     
     <div class="card-content article ">
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                从零开始学习CNN系列——（一）基本概念
+                从零开始学习CNN系列——（一）机器学习与深度学习的宏观理解
             
         </h1>
         
@@ -157,7 +157,7 @@
                 
                 <time class="level-item has-text-grey" datetime="2020-02-04T06:44:11.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-02-04</time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-21T09:43:15.274Z"><i class="far fa-calendar-check">&nbsp;</i>2020-02-21</time>
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-26T03:03:31.347Z"><i class="far fa-calendar-check">&nbsp;</i>2020-02-26</time>
                 
                 
                 <div class="level-item">
@@ -170,7 +170,7 @@
                     <i class="far fa-clock"></i>&nbsp;
                     
                     
-                    10 分钟 读完 (大约 1547 个字)
+                    11 分钟 读完 (大约 1609 个字)
                 </span>
                 
                 
@@ -184,7 +184,7 @@
         
         <div class="content">
             <p>&nbsp;&nbsp;&nbsp;&nbsp;从零开始学习CNN系列，是本人学习李宏毅老师的深度学习课、cs231n及吴恩达老师的深度学习课后总结的适合无基础小白入门深度学习的教程，会跟随本人的炼丹水平不断更改，如有错误，请多加指正。<a id="more"></a></p>
-<h2 id="一、对机器学习与深度学习的宏观理解"><a href="#一、对机器学习与深度学习的宏观理解" class="headerlink" title="一、对机器学习与深度学习的宏观理解"></a>一、对机器学习与深度学习的宏观理解</h2><h3 id="1、机器学习的定义"><a href="#1、机器学习的定义" class="headerlink" title="1、机器学习的定义"></a>1、机器学习的定义</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;我非常同意李宏毅老师把机器学习定义为：<strong>Looking for a function</strong>的说法。<br>&nbsp;&nbsp;&nbsp;&nbsp;譬如我们的图像识别，用李老师ppt中的图来描述极为形象：</p>
+<h2 id="1、机器学习的定义"><a href="#1、机器学习的定义" class="headerlink" title="1、机器学习的定义"></a>1、机器学习的定义</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;我非常同意李宏毅老师把机器学习定义为：<strong>Looking for a function</strong>的说法。<br>&nbsp;&nbsp;&nbsp;&nbsp;譬如我们的图像识别，用李老师ppt中的图来描述极为形象：</p>
 <center>
 <img src="/images/deep_learning/image_recognition.jpg" width="50%" height="50%">
 </center>
@@ -199,7 +199,7 @@
 <img src="/images/deep_learning/alphago.png" width="50%" height="50%">
 </center>
 
-<h3 id="2、机器学习的通用架构-framework"><a href="#2、机器学习的通用架构-framework" class="headerlink" title="2、机器学习的通用架构(framework)"></a>2、机器学习的通用架构(framework)</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;机器学习的应用多种多样，但其架构都可以用李老师ppt中的图片来概括：</p>
+<h2 id="2、机器学习的通用架构-framework"><a href="#2、机器学习的通用架构-framework" class="headerlink" title="2、机器学习的通用架构(framework)"></a>2、机器学习的通用架构(framework)</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;机器学习的应用多种多样，但其架构都可以用李老师ppt中的图片来概括：</p>
 <center>
 <img src="/images/deep_learning/framework.png" width="50%" height="50%">
 </center>
@@ -209,7 +209,7 @@
 <li>step2:针对每个函数(function)，利用训练集数据计算拟合度，即描述这个选定函数的好坏。最常用的是L2（均方误差函数MSE）：<br>$$M S E=\sum_{i=1}^{n}\left(y_{i}-y_{i}^{p}\right)^{2}$$<br>其中$y_{i}$代表真实值，$y_{i}^{p}$代表预测值。MSE计算的是预测值和真实值的误差。</li>
 <li>step3:寻找拟合度最高即误差最小的函数 $f^{<em>}$ 。<br>&nbsp;&nbsp;&nbsp;&nbsp; $f^{</em>}$ 即是训练结果，最终用来识别图中猫的函数也正是 $f^{*}$ 。</li>
 </ul>
-<h3 id="3、机器学习的分类"><a href="#3、机器学习的分类" class="headerlink" title="3、机器学习的分类"></a>3、机器学习的分类</h3><center>
+<h2 id="3、机器学习的分类"><a href="#3、机器学习的分类" class="headerlink" title="3、机器学习的分类"></a>3、机器学习的分类</h2><center>
 <img src="/images/deep_learning/learning_map.png" width="50%" height="50%">
 </center>
 
@@ -226,7 +226,7 @@
 </li>
 </ul>
 <p>监督式学习(SL)充当电脑的老师，告诉电脑具体棋局对应的棋子具体的落点。<br>强化学习(RL):只是让电脑自己对弈，随意移动，不告诉具体棋局的应对方式，得到的只有最后棋局是否赢了的反馈，如果赢了，电脑只知道这局棋下得好，哪步棋、哪个策略好完全不知道。</p>
-<h3 id="4、机器学习需要解决的三类问题"><a href="#4、机器学习需要解决的三类问题" class="headerlink" title="4、机器学习需要解决的三类问题"></a>4、机器学习需要解决的三类问题</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;以上介绍的几种不同的学习方式，都需要解决下列三类问题，才能完成一个模型的训练。</p>
+<h2 id="4、机器学习需要解决的三类问题"><a href="#4、机器学习需要解决的三类问题" class="headerlink" title="4、机器学习需要解决的三类问题"></a>4、机器学习需要解决的三类问题</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;以上介绍的几种不同的学习方式，都需要解决下列三类问题，才能完成一个模型的训练。</p>
 <ul>
 <li><strong>回归问题(Regression)</strong><br>回归问题与分类问题最大的区别在于：回归问题的输出值是连续的，而分类问题是离散的。回归问题(Regression)最常见的情形就是我们初高中学过的线性回归，例如一元线性回归：给定一系列input data，$x_{1.2….n}$与$y_{1.2….n}$，线性回归得到一个模型：$$y=b+a*x$$每个输入的x都对应一个y，y值是连续的。</li>
 <li><strong>分类问题(Classification)</strong><br>分类问题与回归问题本质相同，唯一区别是输出值是离散的。例如二分类，只输出两个值。</li>
@@ -236,14 +236,14 @@
 
 </li>
 </ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其输出的是一句话。<br>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<h2 id="5、深度学习与机器学习的关系"><a href="#5、深度学习与机器学习的关系" class="headerlink" title="5、深度学习与机器学习的关系"></a>5、深度学习与机器学习的关系</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;如在<strong>2中的机器学习通用架构图</strong> 所表示的一样，深度学习同我们熟知的SVM、K-NN等算法都属于解决机器学习具体问题的方法，并且属于非线性模型，所以深度学习与机器学习应该是从属关系。</p>
 
         </div>
         
           <ul class="post-copyright">
-          <li><strong>本文标题：</strong><a href="http://yoursite.com/2020/02/04/从零开始学习CNN系列——（一）基本概念/">从零开始学习CNN系列——（一）基本概念</a></li>
+          <li><strong>本文标题：</strong><a href="http://yoursite.com/2020/02/04/从零开始学习CNN系列——（一）机器学习和深度学习的宏观理解/">从零开始学习CNN系列——（一）机器学习与深度学习的宏观理解</a></li>
           <li><strong>本文作者：</strong><a href="http://yoursite.com">Icecream</a></li>
-          <li><strong>本文链接：</strong><a href="http://yoursite.com/2020/02/04/从零开始学习CNN系列——（一）基本概念/">http://yoursite.com/2020/02/04/从零开始学习CNN系列——（一）基本概念/</a></li>
+          <li><strong>本文链接：</strong><a href="http://yoursite.com/2020/02/04/从零开始学习CNN系列——（一）机器学习和深度学习的宏观理解/">http://yoursite.com/2020/02/04/从零开始学习CNN系列——（一）机器学习和深度学习的宏观理解/</a></li>
           <li><strong>发布时间：</strong>2020-02-04</li>
           <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
           </li>
@@ -459,26 +459,26 @@
                     目录
                 </h3>
                 <ul class="menu-list"><li>
-        <a class="is-flex" href="#一、对机器学习与深度学习的宏观理解">
-        <span class="has-mr-6">1</span>
-        <span>一、对机器学习与深度学习的宏观理解</span>
-        </a><ul class="menu-list"><li>
         <a class="is-flex" href="#1、机器学习的定义">
-        <span class="has-mr-6">1.1</span>
+        <span class="has-mr-6">1</span>
         <span>1、机器学习的定义</span>
         </a></li><li>
         <a class="is-flex" href="#2、机器学习的通用架构-framework">
-        <span class="has-mr-6">1.2</span>
+        <span class="has-mr-6">2</span>
         <span>2、机器学习的通用架构(framework)</span>
         </a></li><li>
         <a class="is-flex" href="#3、机器学习的分类">
-        <span class="has-mr-6">1.3</span>
+        <span class="has-mr-6">3</span>
         <span>3、机器学习的分类</span>
         </a></li><li>
         <a class="is-flex" href="#4、机器学习需要解决的三类问题">
-        <span class="has-mr-6">1.4</span>
+        <span class="has-mr-6">4</span>
         <span>4、机器学习需要解决的三类问题</span>
-        </a></li></ul></li></ul>
+        </a></li><li>
+        <a class="is-flex" href="#5、深度学习与机器学习的关系">
+        <span class="has-mr-6">5</span>
+        <span>5、深度学习与机器学习的关系</span>
+        </a></li></ul>
             </div>
         </div>
     </div>
@@ -501,7 +501,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo3.jpg" alt="从零开始学习CNN系列——（一）基本概念" height="28">
+                    <img src="/images/logo3.jpg" alt="从零开始学习CNN系列——（一）机器学习与深度学习的宏观理解" height="28">
                 
                 </a>
                 <p class="is-size-7">
