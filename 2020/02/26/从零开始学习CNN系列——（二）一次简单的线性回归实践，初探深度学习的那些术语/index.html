@@ -20,7 +20,7 @@
 <meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;从零开始学习CNN系列，是本人学习李宏毅老师的深度学习课、cs231n及吴恩达老师的深度学习课后总结的适合无基础小白入门深度学习的教程，会跟随本人的炼丹水平不断更改，如有错误，请多加指正。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;此小节，我们将从一次简单的线性回归实践开始，解释平常听到的学习率(learning rate)、梯度下降(gradi">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/deep_learning/thumbnail.png">
-<meta property="og:updated_time" content="2020-02-29T10:42:28.690Z">
+<meta property="og:updated_time" content="2020-03-01T10:27:02.652Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从零开始学习CNN系列——（二）一次简单的线性回归实践，初探深度学习的那些术语">
 <meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;从零开始学习CNN系列，是本人学习李宏毅老师的深度学习课、cs231n及吴恩达老师的深度学习课后总结的适合无基础小白入门深度学习的教程，会跟随本人的炼丹水平不断更改，如有错误，请多加指正。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;此小节，我们将从一次简单的线性回归实践开始，解释平常听到的学习率(learning rate)、梯度下降(gradi">
@@ -157,7 +157,7 @@
                 
                 <time class="level-item has-text-grey" datetime="2020-02-26T03:11:34.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-02-26</time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-02-29T10:42:28.690Z"><i class="far fa-calendar-check">&nbsp;</i>2020-02-29</time>
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-01T10:27:02.652Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-01</time>
                 
                 
                 <div class="level-item">
@@ -170,7 +170,7 @@
                     <i class="far fa-clock"></i>&nbsp;
                     
                     
-                    20 分钟 读完 (大约 2945 个字)
+                    24 分钟 读完 (大约 3598 个字)
                 </span>
                 
                 
@@ -236,7 +236,14 @@ learning rate = 0.0000001结果
 <img src="/images/deep_learning/func_9.png" width="50%" height="50%">
 </center> 
 
-<p>&nbsp;&nbsp;&nbsp;&nbsp;可以显而易见的发现，随着函数阶数的增加，模型拟合的误差越来越小，甚至到了9阶时，模型函数完全与$(x,y)$数据点重合，误差达到了0。这时候你也许会瞬间提出一个疑问：既然模型越复杂，误差越小，那我们每次都选择最复杂的模型训练不就可以了吗？<br>&nbsp;&nbsp;&nbsp;&nbsp;这个问题引发我们第一个讨论——<strong>是不是模型越复杂，训练结果就一定越好呢？</strong> 并不是。用来拟合的$(x,y)$数据我们通常称为<strong>训练集(training data)</strong> ，但是经过训练得出的最好的函数还需要在实际数据上检验，通常这部分数据我们称为<strong>测试集(testing data，请暂时忽略验证集，后续会讲解)</strong>，而核心问题是在训练集上误差很小的函数，在测试集上不一定很小，而且像9阶这种复杂模型函数，误差可能会非常大。<br>&nbsp;&nbsp;&nbsp;&nbsp;仔细思考，可以发现误差函数$L(w,b)$的讨论都是基于确定的模型，属于纵向的讨论，缺乏不同模型的横向讨论。<br><strong>正则化的意义和不同方法</strong>\ <strong>代码实践</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;可以显而易见的发现，随着函数阶数的增加，模型拟合的误差越来越小，甚至到了9阶时，模型函数完全与$(x,y)$数据点重合，误差达到了0。这时候你也许会瞬间提出一个疑问：既然模型越复杂，误差越小，那我们每次都选择最复杂的模型训练不就可以了吗？<br>&nbsp;&nbsp;&nbsp;&nbsp;这个问题引发我们第一个讨论——<strong>是不是模型越复杂，训练结果就一定越好呢？</strong> 并不是。用来拟合的$(x,y)$数据我们通常称为<strong>训练集(training data)</strong> ，但是经过训练得出的最好的函数还需要在实际数据上检验，通常这部分数据我们称为<strong>测试集(testing data，请暂时忽略验证集，后续会讲解)</strong>，而核心问题是在训练集上误差很小的函数，在测试集上不一定很小，现实中，像9阶这种复杂模型函数，在测试集上误差可能会非常大。<br>&nbsp;&nbsp;&nbsp;&nbsp;进一步思考：为什么像9阶多项式这种复杂模型，在训练集上表现优异，而在测试集上往往表现很差？聪明的读者，<strong>肯定能发现是由于复杂模型的输出($y$)受输入($x$)影响较大</strong>，比如上述的9阶多项式中，因为存在$x^9$这一高阶项，导致输入($x$)发生轻微变化，输出($y$)就变化巨大，因此，就算测试集和训练集只有微小差异，最终在测试集的表现也远不如训练集，例如训练集中有(226,428)一点，而测试集中有其附近的点(227,430),训练出的模型函数导致就算x只增加了1，预测的y值也极具增加，在(227,430)产生极大误差。<br>&nbsp;&nbsp;&nbsp;&nbsp;简单的思考之后，我们可以发现，我们并不是讨厌所有复杂的模型，只是讨厌输出($y$)受输入($x$)影响较大的模型，换言之，我们喜欢更<strong>平滑(smooth)的模型</strong>，保证其在训练集上表现良好的同时，输入对输出的影响尽可能小。而<strong>正则化(Regularization)</strong>正是为了寻找平滑(smooth)模型而诞生的，其具体方法是通过更改$L(w,b)$的表达式：<br>$$L(w,b)=\sum_{j=1}^{n}\left(y_{j}-\left(b+\sum_{i=1}^{m} w_{i} * x_{j,i}\right)\right)^{2}+\lambda \sum_{i=1}^{m}w_i^2$$<br>看到这个你肯定会想问：<strong>为什么简单的加入$\lambda \sum_{i=1}^{m}w_i^2$(被称为正则项),就能使模型更平滑呢？</strong> 首先说句题外话，边提问，边思考，然后自己给出答案，是一种很不错的学习方式。其次，观察$L(w,b)$函数，要使$L(w,b)$尽可能小，$w_i$肯定要尽可能小，即 <strong>新的$L(w,b)$函数期望找到$w_i$和误差都尽可能小的模型</strong>。但$w_i$尽可能小，代表函数越平滑(smooth)吗?且看下式，我们探讨下训练出的模型中，$x_i$变化时$y_i$会发生什么样的变化。<br>$$y_p = b+\sum_{i=1}^{n} w_{i} * x_{i}$$<br>$$若 x_i = x_i + \Delta x_{i}$$<br>$$则 y_p = y_p + \sum_{i=1}^{n} w_{i} * \Delta x_{i}$$<br>显然，当$w_i$非常小时，即使$x_i$变化较大，预测值$y_p$也不会受很大影响，即正则化后，新的L(w,b)的确能找到更平滑的模型。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;这篇文章主要主要讲述了以下几点知识点：</p>
+<ul>
+<li>梯度下降法(Gradient Descent)</li>
+<li>什么是常说的学习率(learning rate)</li>
+<li>什么是正则化</li>
+<li>L2损失函数(or误差函数)</li>
+</ul>
 
         </div>
         
@@ -303,6 +310,13 @@ learning rate = 0.0000001结果
 
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/03/01/从零开始学习CNN系列——（三）梯度下降法的深度探索/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">从零开始学习CNN系列——（三）梯度下降法的深度探索</span>
+            </a>
+        </div>
         
         
         <div class="level-end">
@@ -382,7 +396,7 @@ learning rate = 0.0000001结果
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            6
+                            7
                         </p>
                     </a>
                 </div>
@@ -463,6 +477,10 @@ learning rate = 0.0000001结果
         <a class="is-flex" href="#3、梯度下降法-Gradient-Descent-的进一步思考——正则化-Regularization">
         <span class="has-mr-6">3</span>
         <span>3、梯度下降法(Gradient Descent)的进一步思考——正则化(Regularization)</span>
+        </a></li><li>
+        <a class="is-flex" href="#小结">
+        <span class="has-mr-6">4</span>
+        <span>小结</span>
         </a></li></ul>
             </div>
         </div>
