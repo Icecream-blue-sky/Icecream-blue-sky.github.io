@@ -20,7 +20,7 @@
 <meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;从零开始学习CNN系列，是本人学习李宏毅老师的深度学习课、cs231n及吴恩达老师的深度学习课后总结的适合无基础小白入门深度学习的教程，会跟随本人的炼丹水平不断更改，如有错误，请多加指正。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;此小节，我们将从一次简单的线性回归实践开始，解释平常听到的学习率(learning rate)、梯度下降(gradi">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/deep_learning/thumbnail.png">
-<meta property="og:updated_time" content="2020-03-03T11:19:56.394Z">
+<meta property="og:updated_time" content="2020-03-07T03:06:40.409Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从零开始学习CNN系列——（二）一次简单的线性回归实践，初探深度学习的那些术语">
 <meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;从零开始学习CNN系列，是本人学习李宏毅老师的深度学习课、cs231n及吴恩达老师的深度学习课后总结的适合无基础小白入门深度学习的教程，会跟随本人的炼丹水平不断更改，如有错误，请多加指正。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;此小节，我们将从一次简单的线性回归实践开始，解释平常听到的学习率(learning rate)、梯度下降(gradi">
@@ -157,7 +157,7 @@
                 
                 <time class="level-item has-text-grey" datetime="2020-02-26T03:11:34.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-02-26</time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-03T11:19:56.394Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-03</time>
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-07T03:06:40.409Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-07</time>
                 
                 
                 <div class="level-item">
@@ -189,7 +189,7 @@
 <ul>
 <li><strong>step 1:建立模型。</strong><br>既然我们已经将其定义为线性回归问题，那么我们使用的函数模型就是上述的线性模型：<br>$$y=b+w \cdot x=b+\sum_{i=1}^n w_{i}*x_{i}$$</li>
 <li><strong>step 2:针对每个函数(function)，利用训练集数据计算拟合度，即描述这个选定函数的好坏。</strong><br>首先设定$y_{p}$为模型预测值，$y$为真实值。暂且不管我们学过的任何误差函数，思考一下我们想要描述这函数的好坏最常规的思路是什么。那当然是直接将两者做差值处理：<br>$$L=\sum_{i=1}^{n}|y_{i}^{p}-y_{i}|$$<br>显然，$|y_{p}^{i}-y{i}|$越大，代表选定的函数越“坏”。这即是机器学习里常说的<strong>L1函数</strong>。不过最常用的误差函数还是之前所说的<strong>L2函数</strong>：<br>$$L =\sum_{i=1}^{n}\left(y_{i}-y_{i}^{p}\right)^{2}$$<br>这次例子我们选择用L2函数。所以：<br>$$L(w,b) = \sum_{i=1}^{n}\left(y_{i}-y_{i}^{p}\right)^{2}=\sum_{i=1}^{n}\left(y_{i}-(b+w \cdot x_{i}\right))^2$$<br>此处的$w$和$x_{i}$都是代表向量。</li>
-<li><strong>step 3:寻找使误差函数最小的函数。</strong><br>$b$与$w$的可能性多种多样，即step 1函数模型下会有很多函数$f_{1}、f_{2}…$。最终选出的目标函数：<br>$$f^{<em>}=\arg \min _{f} L(f)$$ $$w^{</em>}, b^{<em>}=\arg \min _{w, b} L(w, b)$$<br>如何快速寻找出这个函数是解决本问题的关键。这就引出了本文最核心的内容——<strong>梯度下降法(Gradient Decent)</strong>。下面我用李老师的方法带领大家一探<strong>梯度下降法</strong>的奥秘！<br>首先我们尝试用其求出$w^{</em>}$,$w^{*}$是一个向量，其可能含有多个标量$w_{i}$，针对其中任意标量$w$，误差函数$L(w)$都是$w$的函数，假定其形状如图:</li>
+<li><strong>step 3:寻找使误差函数最小的函数。</strong><br>$b$与$w$的可能性多种多样，即step 1函数模型下会有很多函数$f_{1}、f_{2}…$。最终选出的目标函数：<br>$$f^{<em>}=\arg \min _{f} L(f)$$<br>$$w^{</em>}, b^{<em>}=\arg \min _{w, b} L(w, b)$$<br>如何快速寻找出这个函数是解决本问题的关键。这就引出了本文最核心的内容——<strong>梯度下降法(Gradient Decent)</strong>。下面我用李老师的方法带领大家一探<strong>梯度下降法</strong>的奥秘！<br>首先我们尝试用其求出$w^{</em>}$,$w^{*}$是一个向量，其可能含有多个标量$w_{i}$，针对其中任意标量$w$，误差函数$L(w)$都是$w$的函数，假定其形状如图:</li>
 </ul>
 <center>
 <img src="/images/deep_learning/gradient_decent.png" width="50%" height="50%">
