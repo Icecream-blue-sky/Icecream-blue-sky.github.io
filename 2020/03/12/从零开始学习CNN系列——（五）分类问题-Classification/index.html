@@ -8,22 +8,19 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>从零开始学习CNN系列——（四）一些乱七八糟的小概念 - Icecream</title>
+<title>从零开始学习CNN系列——（五）分类问题(Classification) - Icecream</title>
 
 
-    <meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;从零开始学习CNN系列，是本人学习李宏毅老师的深度学习课、cs231n及吴恩达老师的深度学习课后总结的适合无基础小白入门深度学习的教程，会跟随本人的炼丹水平不断更改，如有错误，请多加指正。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;此小节，主要介绍几个常见的却不知道为什么的概念，实在不知道取啥名字，乱七八糟就对了。">
-<meta name="keywords" content="深度学习,CNN">
+    <meta name="keywords" content="深度学习,CNN">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从零开始学习CNN系列——（四）一些乱七八糟的小概念">
-<meta property="og:url" content="http://yoursite.com/2020/03/10/从零开始学习CNN系列——（四）一些乱七八糟的小概念/index.html">
+<meta property="og:title" content="从零开始学习CNN系列——（五）分类问题(Classification)">
+<meta property="og:url" content="http://yoursite.com/2020/03/12/从零开始学习CNN系列——（五）分类问题-Classification/index.html">
 <meta property="og:site_name" content="Icecream">
-<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;从零开始学习CNN系列，是本人学习李宏毅老师的深度学习课、cs231n及吴恩达老师的深度学习课后总结的适合无基础小白入门深度学习的教程，会跟随本人的炼丹水平不断更改，如有错误，请多加指正。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;此小节，主要介绍几个常见的却不知道为什么的概念，实在不知道取啥名字，乱七八糟就对了。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/deep_learning/thumbnail.png">
-<meta property="og:updated_time" content="2020-03-12T06:40:16.665Z">
+<meta property="og:updated_time" content="2020-03-12T06:50:53.596Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从零开始学习CNN系列——（四）一些乱七八糟的小概念">
-<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;从零开始学习CNN系列，是本人学习李宏毅老师的深度学习课、cs231n及吴恩达老师的深度学习课后总结的适合无基础小白入门深度学习的教程，会跟随本人的炼丹水平不断更改，如有错误，请多加指正。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;此小节，主要介绍几个常见的却不知道为什么的概念，实在不知道取啥名字，乱七八糟就对了。">
+<meta name="twitter:title" content="从零开始学习CNN系列——（五）分类问题(Classification)">
 <meta name="twitter:image" content="http://yoursite.com/images/deep_learning/thumbnail.png">
 
 
@@ -88,7 +85,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo3.jpg" alt="从零开始学习CNN系列——（四）一些乱七八糟的小概念" height="28">
+                <img src="/images/logo3.jpg" alt="从零开始学习CNN系列——（五）分类问题(Classification)" height="28">
             
             </a>
         </div>
@@ -141,23 +138,23 @@
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="/images/deep_learning/thumbnail.png" alt="从零开始学习CNN系列——（四）一些乱七八糟的小概念">
+            <img class="thumbnail" src="/images/deep_learning/thumbnail.png" alt="从零开始学习CNN系列——（五）分类问题(Classification)">
         </span>
     </div>
     
     <div class="card-content article ">
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                从零开始学习CNN系列——（四）一些乱七八糟的小概念
+                从零开始学习CNN系列——（五）分类问题(Classification)
             
         </h1>
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
                 
-                <time class="level-item has-text-grey" datetime="2020-03-10T12:18:26.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-03-10</time>
+                <time class="level-item has-text-grey" datetime="2020-03-12T06:46:41.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-03-12</time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-12T06:40:16.665Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-12</time>
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-12T06:50:53.596Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-12</time>
                 
                 
                 <div class="level-item">
@@ -170,7 +167,7 @@
                     <i class="far fa-clock"></i>&nbsp;
                     
                     
-                    10 分钟 读完 (大约 1519 个字)
+                    几秒 读完 (大约 0 个字)
                 </span>
                 
                 
@@ -183,45 +180,14 @@
         </div>
         
         <div class="content">
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;从零开始学习CNN系列，是本人学习李宏毅老师的深度学习课、cs231n及吴恩达老师的深度学习课后总结的适合无基础小白入门深度学习的教程，会跟随本人的炼丹水平不断更改，如有错误，请多加指正。<br><br>&nbsp;&nbsp;&nbsp;&nbsp;此小节，主要介绍几个常见的却不知道为什么的概念，实在不知道取啥名字，乱七八糟就对了。<a id="more"></a></p>
-<h2 id="1、“过拟合”概念的理解"><a href="#1、“过拟合”概念的理解" class="headerlink" title="1、“过拟合”概念的理解"></a>1、“过拟合”概念的理解</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;机器学习中的<strong>过拟合</strong>是指<strong>模型在训练集表现优越，但在测试集误差非常大</strong>。现在我们来思考，过拟合现象出现的原因。<br>&nbsp;&nbsp;&nbsp;&nbsp;李老师用bias和variance两个因子来解释过拟合的思路非常巧妙，这里分享给大家。</p>
-<center>
-<img src="/images/deep_learning/bias.png" width="50%" height="50%">
-</center>
-
-<p>通常，过拟合出现的直接原因是因为设计的模型过于复杂，如上图的右侧函数，其function set包含的函数可能性远超左侧的简单函数。如果将模型的训练比作射击比赛，靶上所有点的集合即是function set，<strong>复杂模型</strong>的可能性种类更多，如同上图的右侧函数，红色覆盖的区域远大于左侧，因此射到靶上的点分布非常散乱，我们称其<strong>variance</strong>（方差）（这里理解为射击点的分散程度）<strong>大</strong>，而因为其点可能散布任何地方，其平均<strong>bias</strong>（这里理解为射击点距靶心的距离）<strong>很小</strong>；而简单模型的可能性种类很少，且分散集中，因此如左图，射击点的分布集中，即<strong>variance小</strong>，且平均<strong>bias较大</strong>。<br>&nbsp;&nbsp;&nbsp;&nbsp;对于复杂模型，想象其是一个发挥很不稳定的选手，我们在他的射击点集合中找一个最优的点（即function set中找best function）当然非常简单，因为他可能射到任何位置，这对应于过拟合模型在训练集表现优越的现象，但当你让他重新射击一次（对应于在测试集运行），他本身发挥不稳定，实力不强，所以误差会异常大；而对于一个合适的简单模型，虽然平均每次都有一定误差，但选手发挥稳定，即便让他再射击一次（测试集），他的表现依然稳定，也即常说的<strong>鲁棒性高</strong>，和训练集表现差不多。<br>&nbsp;&nbsp;&nbsp;&nbsp;当然，若是一个模型在训练集bias就非常大，那就是不拟合（underfitting）了，亲，这边建议重新设计模型。</p>
-<h2 id="2、为什么要把数据集分为training、validation、testing-三个set？"><a href="#2、为什么要把数据集分为training、validation、testing-三个set？" class="headerlink" title="2、为什么要把数据集分为training、validation、testing 三个set？"></a>2、为什么要把数据集分为training、validation、testing 三个set？</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;有过实际炼丹经历的读者都应该知道，正常情况下，我们都是把数据集分为training set、validation set、testing set，而不是想当然认为的training set、testing set。但我也一直很想知道为啥要多出一个validation set，如果你和我有过同样的问题，这里给出一个个人觉得不错的解答。<br>&nbsp;&nbsp;&nbsp;&nbsp;首先，如果将数据集如下图一样只分为training set和testing set：</p>
-<center>
-<img src="/images/deep_learning/set_1.png" width="50%" height="50%">
-</center>
-
-<p>通过训练，我们找出三种模型下的三个最优函数，并且我们用其在testing set上的表现来选择最优模型，其问题是由于真正上线遇到的数据（橙色testing set)是完全新的，模型在testing set上的表现并不能代表实际表现。</p>
-<p>再来对比下，我们加上一个validation set：</p>
-<center>
-<img src="/images/deep_learning/set_2.png" width="50%" height="50%">
-</center>
-
-<p>可以看到，<strong>这里的validation set实际上替代了第一种方法的testing set，而testing set模拟了第一种方法中实际上线时的testing set，虽然这种方法下，模型在testing set的表现依然不能代表实际表现，但相对于第一种方法，它通过模拟模型从测试到实际上线的整个流程，使得模型在testing set的表现相比第一种方法，更能代表实际表现</strong>。（有点绕口，但个人理解是这样的）</p>
-<h2 id="3、为什么要做特征缩放（feature-scaling-？"><a href="#3、为什么要做特征缩放（feature-scaling-？" class="headerlink" title="3、为什么要做特征缩放（feature scaling)？"></a>3、为什么要做特征缩放（feature scaling)？</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>所谓特征缩放（feature scaling)就是将不同特征值缩放到同一波动范围</strong>，如下图中的 $x1$ 和 $x2$ 。</p>
-<center>
-<img src="/images/deep_learning/fscale.png" width="50%" height="50%">
-</center>
-
-<p>$x2$ 的波动范围原来是100的倍数，远大于 $x1$ ，进行特征缩放后，将其缩放到与 $x1$ 同范围。做特征缩放的核心原因是：可以让梯度下降法更快地找到目标点。以下是定性分析：<br>因为 $x2$ 的范围明显大于 $x1$ ，所以 $w2$ 对 $y$ 的影响远大于 $w1$ ，$w2$只做微小变化，对 $y$ 的影响也远超 $w1$ ，用图形来形象表示就成了上图中左侧的椭圆；同理，如果 $x1$ 和 $x2$ 缩放到同一范围，就变成右侧的圆形。从数学角度做个简单的分析，梯度的方向即是等高线的法线，相比椭圆，右侧的圆形肯定能更快到达目标点。</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;这篇文章主要讲述了以下几个知识点：</p>
-<ul>
-<li>过拟合现象的一种有趣的理解</li>
-<li>之所以要把数据集分为training、validation、testing set是为了更好的模拟模型在实际数据集的表现。</li>
-<li>做特征缩放是为了加快梯度下降法寻找到目标点的速度。</li>
-</ul>
-
+            
         </div>
         
           <ul class="post-copyright">
-          <li><strong>本文标题：</strong><a href="http://yoursite.com/2020/03/10/从零开始学习CNN系列——（四）一些乱七八糟的小概念/">从零开始学习CNN系列——（四）一些乱七八糟的小概念</a></li>
+          <li><strong>本文标题：</strong><a href="http://yoursite.com/2020/03/12/从零开始学习CNN系列——（五）分类问题-Classification/">从零开始学习CNN系列——（五）分类问题(Classification)</a></li>
           <li><strong>本文作者：</strong><a href="http://yoursite.com">Icecream</a></li>
-          <li><strong>本文链接：</strong><a href="http://yoursite.com/2020/03/10/从零开始学习CNN系列——（四）一些乱七八糟的小概念/">http://yoursite.com/2020/03/10/从零开始学习CNN系列——（四）一些乱七八糟的小概念/</a></li>
-          <li><strong>发布时间：</strong>2020-03-10</li>
+          <li><strong>本文链接：</strong><a href="http://yoursite.com/2020/03/12/从零开始学习CNN系列——（五）分类问题-Classification/">http://yoursite.com/2020/03/12/从零开始学习CNN系列——（五）分类问题-Classification/</a></li>
+          <li><strong>发布时间：</strong>2020-03-12</li>
           <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
           </li>
           </ul>
@@ -281,17 +247,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/03/12/从零开始学习CNN系列——（五）分类问题-Classification/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">从零开始学习CNN系列——（五）分类问题(Classification)</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/03/08/排名不好的菜鸡的中科大保研之旅/">
-                <span class="level-item">排名不好的菜鸡的中科大保研之旅</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/03/10/从零开始学习CNN系列——（四）一些乱七八糟的小概念/">
+                <span class="level-item">从零开始学习CNN系列——（四）一些乱七八糟的小概念</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -429,33 +388,6 @@
     
         
 
-    <div class="card widget" id="toc">
-        <div class="card-content">
-            <div class="menu">
-                <h3 class="menu-label">
-                    目录
-                </h3>
-                <ul class="menu-list"><li>
-        <a class="is-flex" href="#1、“过拟合”概念的理解">
-        <span class="has-mr-6">1</span>
-        <span>1、“过拟合”概念的理解</span>
-        </a></li><li>
-        <a class="is-flex" href="#2、为什么要把数据集分为training、validation、testing-三个set？">
-        <span class="has-mr-6">2</span>
-        <span>2、为什么要把数据集分为training、validation、testing 三个set？</span>
-        </a></li><li>
-        <a class="is-flex" href="#3、为什么要做特征缩放（feature-scaling-？">
-        <span class="has-mr-6">3</span>
-        <span>3、为什么要做特征缩放（feature scaling)？</span>
-        </a></li><li>
-        <a class="is-flex" href="#小结">
-        <span class="has-mr-6">4</span>
-        <span>小结</span>
-        </a></li></ul>
-            </div>
-        </div>
-    </div>
-
     
     
         <div class="column-right-shadow is-hidden-widescreen ">
@@ -474,7 +406,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo3.jpg" alt="从零开始学习CNN系列——（四）一些乱七八糟的小概念" height="28">
+                    <img src="/images/logo3.jpg" alt="从零开始学习CNN系列——（五）分类问题(Classification)" height="28">
                 
                 </a>
                 <p class="is-size-7">
