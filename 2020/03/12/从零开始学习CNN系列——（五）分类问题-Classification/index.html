@@ -20,7 +20,7 @@
 <meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;从零开始学习CNN系列，是本人学习李宏毅老师的深度学习课、cs231n及吴恩达老师的深度学习课后总结的适合无基础小白入门深度学习的教程，会跟随本人的炼丹水平不断更改，如有错误，请多加指正。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;此小节主要讲述回归问题（Regression)的姊妹问题——分类问题（Classification），介绍了两种常用">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/deep_learning/thumbnail.png">
-<meta property="og:updated_time" content="2020-03-12T09:48:00.121Z">
+<meta property="og:updated_time" content="2020-03-13T08:45:39.405Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从零开始学习CNN系列——（五）分类问题(Classification)">
 <meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;从零开始学习CNN系列，是本人学习李宏毅老师的深度学习课、cs231n及吴恩达老师的深度学习课后总结的适合无基础小白入门深度学习的教程，会跟随本人的炼丹水平不断更改，如有错误，请多加指正。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;此小节主要讲述回归问题（Regression)的姊妹问题——分类问题（Classification），介绍了两种常用">
@@ -157,7 +157,7 @@
                 
                 <time class="level-item has-text-grey" datetime="2020-03-12T06:46:41.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-03-12</time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-12T09:48:00.121Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-12</time>
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-13T08:45:39.405Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-13</time>
                 
                 
                 <div class="level-item">
@@ -170,7 +170,7 @@
                     <i class="far fa-clock"></i>&nbsp;
                     
                     
-                    2 分钟 读完 (大约 236 个字)
+                    5 分钟 读完 (大约 818 个字)
                 </span>
                 
                 
@@ -184,9 +184,18 @@
         
         <div class="content">
             <p>&nbsp;&nbsp;&nbsp;&nbsp;从零开始学习CNN系列，是本人学习李宏毅老师的深度学习课、cs231n及吴恩达老师的深度学习课后总结的适合无基础小白入门深度学习的教程，会跟随本人的炼丹水平不断更改，如有错误，请多加指正。<br><br>&nbsp;&nbsp;&nbsp;&nbsp;此小节主要讲述回归问题（Regression)的姊妹问题——分类问题（Classification），介绍了两种常用的模型——<strong>生成式模型（Generative Model）</strong>的一种<strong>高斯生成模型</strong>和<strong>判别式模型（Discriminative Model）</strong> 的一种 <strong>Logistic Regression</strong>。<a id="more"></a></p>
-<h2 id="1、生成式模型（Generative-Model-的一种——高斯生成模型"><a href="#1、生成式模型（Generative-Model-的一种——高斯生成模型" class="headerlink" title="1、生成式模型（Generative Model)的一种——高斯生成模型"></a>1、生成式模型（Generative Model)的一种——高斯生成模型</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<h2 id="1、生成式模型（Generative-Model-的一种——高斯生成模型"><a href="#1、生成式模型（Generative-Model-的一种——高斯生成模型" class="headerlink" title="1、生成式模型（Generative Model)的一种——高斯生成模型"></a>1、生成式模型（Generative Model)的一种——高斯生成模型</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;实在没想出更好的例子来讲解高斯生成模型，暂时就用李老师训练宝可梦的例子吧。我们用以前讲过的<strong>机器学习三段论</strong>（我命名的hh）来解决如下问题：<br>&nbsp;&nbsp;&nbsp;&nbsp;<strong>step1</strong>：<strong>提出问题</strong><br>假设训练集有79只Water系宝可梦和61只Normal系宝可梦，你也不用管它是啥，因为我也不知道，反正就长下面这样。</p>
+<center>
+<img src="/images/deep_learning/gm_1.png" width="50%" height="50%">
+</center>
+
+<p>童年看过《神奇宝贝》的大概都知道，每只宝可梦都有自己的属性如HP(生命值)、Attack(攻击力)、Defense(普通攻击防御力)、SP Defense(特殊攻击防御力)等等，这里为了问题简便，假设只有Defense和SP Defense两个因子影响一只宝可梦属于Water系还是Normal系。现在让你训练出一个模型，这个模型能对类别未知的宝可梦进行识别，判断它属于Water还是Normal系。<br>&nbsp;&nbsp;&nbsp;&nbsp;<strong>step2</strong>：<strong>建立模型</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;<strong>step3</strong>：<strong>针对每个函数(function)，利用训练集数据计算拟合度，即描述这个选定函数的好坏。</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;<strong>step4</strong>：<strong>寻找使误差函数最小的函数。</strong></p>
 <h2 id="2、判别式模型（Dicriminative-Model-的一种——Logistic-Regression"><a href="#2、判别式模型（Dicriminative-Model-的一种——Logistic-Regression" class="headerlink" title="2、判别式模型（Dicriminative Model)的一种——Logistic Regression"></a>2、判别式模型（Dicriminative Model)的一种——Logistic Regression</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
-<h2 id="3、生成式模型与判别式模型的区别"><a href="#3、生成式模型与判别式模型的区别" class="headerlink" title="3、生成式模型与判别式模型的区别"></a>3、生成式模型与判别式模型的区别</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<h2 id="3、生成式模型与判别式模型的区别"><a href="#3、生成式模型与判别式模型的区别" class="headerlink" title="3、生成式模型与判别式模型的区别"></a>3、生成式模型与判别式模型的区别</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;参照<a href="https://www.cnblogs.com/nolonely/p/6435213.html" target="_blank" rel="noopener">https://www.cnblogs.com/nolonely/p/6435213.html</a> 的解释：</p>
+<ul>
+<li><strong>判别式模型</strong>：有明确的分界线，如线性回归模型、logistic regression。用山羊和绵羊的例子来讲，就是要确定一个羊是山羊还是绵羊，用判别模型的方法是从历史数据中学习到模型，然后通过提取这只羊的特征来预测出这只羊是山羊的概率，是绵羊的概率。</li>
+<li><strong>生成式模型</strong>：没有明确的分界线，如高斯生成模型。利用生成模型来解决上述问题，生成模型根据山羊的特征首先学习出一个山羊的模型，然后根据绵羊的特征学习出一个绵羊的模型，然后从这只羊中提取特征，放到山羊模型中看概率是多少，在放到绵羊模型中看概率是多少，哪个大就是哪个。</li>
+</ul>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2>
         </div>
         
