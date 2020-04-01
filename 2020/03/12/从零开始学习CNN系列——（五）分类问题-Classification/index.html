@@ -20,7 +20,7 @@
 <meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;从零开始学习CNN系列，是本人学习李宏毅老师的深度学习课、cs231n及吴恩达老师的深度学习课后总结的适合无基础小白入门深度学习的教程，会跟随本人的炼丹水平不断更改，如有错误，请多加指正。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;此小节主要讲述回归问题（Regression)的姊妹问题——分类问题（Classification），介绍了两种常用">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/deep_learning/thumbnail.png">
-<meta property="og:updated_time" content="2020-03-31T13:13:23.490Z">
+<meta property="og:updated_time" content="2020-04-01T13:41:58.748Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从零开始学习CNN系列——（五）分类问题(Classification)">
 <meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;从零开始学习CNN系列，是本人学习李宏毅老师的深度学习课、cs231n及吴恩达老师的深度学习课后总结的适合无基础小白入门深度学习的教程，会跟随本人的炼丹水平不断更改，如有错误，请多加指正。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;此小节主要讲述回归问题（Regression)的姊妹问题——分类问题（Classification），介绍了两种常用">
@@ -157,7 +157,7 @@
                 
                 <time class="level-item has-text-grey" datetime="2020-03-12T06:46:41.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-03-12</time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-31T13:13:23.490Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-31</time>
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-04-01T13:41:58.748Z"><i class="far fa-calendar-check">&nbsp;</i>2020-04-01</time>
                 
                 
                 <div class="level-item">
@@ -170,7 +170,7 @@
                     <i class="far fa-clock"></i>&nbsp;
                     
                     
-                    11 分钟 读完 (大约 1627 个字)
+                    12 分钟 读完 (大约 1806 个字)
                 </span>
                 
                 
@@ -205,7 +205,7 @@
 <img src="/images/deep_learning/lg_3.png" width="50%" height="50%">
 </center>
 
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>step1</strong>：<strong>建立模型(Function Set)</strong><br>我们需要赋予Logistic Regression的输出一个意义：模型输出定义为属于C1的概率$P_{w,b}(C_1|x)$，且若$P_{w,b}(C_1|x)&gt;=0.5$，归类为C1;否则，归类于C2。<br>&nbsp;&nbsp;&nbsp;&nbsp;<strong>step2</strong>：<strong>针对每个函数(function)，利用训练集数据计算拟合度，即描述这个选定函数的好坏。(Loss Function)</strong><br>根据极大似然法原理，为找出最佳模型，我们需要使找出的模型让当前训练集数据出现的概率最大。<br>$$<br>L(w, b)=f_{w, b}\left(x^{1}\right) f_{w, b}\left(x^{2}\right)\left(1-f_{w, b}\left(x^{3}\right)\right) \cdots f_{w, b}\left(x^{N}\right)<br>$$<br>$$w^{<em>}, b^{</em>}=\arg \min <em>{w, b}-\ln L(w, b)$$<br>$$<br>-\ln L(w, b)=\ln f</em>{w, b}\left(x^{1}\right)+\ln f_{w, b}\left(x^{2}\right)+\ln \left(1-f_{w, b}\left(x^{3}\right)\right) \cdots<br>$$<br>定义 $\widehat{y}^{n}=1$，当归类为C1;$\widehat{y}^{n}=0$，当归类为C2。<br>$$<br>-\ln L(w, b)=\sum_{n}-\left[\hat{y}^{n} \ln f_{w, b}\left(x^{n}\right)+\left(1-\hat{y}^{n}\right) \ln \left(1-f_{w, b}\left(x^{n}\right)\right)\right]<br>$$<br>这即是常说的cross entropy。<br>&nbsp;&nbsp;&nbsp;&nbsp;<strong>step3</strong>：<strong>寻找使误差函数最小的函数。</strong><br>$$<br>f_{w, b}(x)=\sigma(z)=1 / 1+\exp (-z)<br>$$<br>$$<br>z=w \cdot x+b=\sum_{i} w_{i} x_{i}+b<br>$$<br>$$<br>\frac{\partial \ln f_{w, b}(x)}{\partial w_{i}}=\frac{\partial \ln f_{w, b}(x)}{\partial z} \frac{\partial z}{\partial w_{i}}<br>$$<br>$$<br>\frac{\partial z}{\partial w_{i}}=x_{i}<br>$$<br>$$<br>\frac{\partial \ln \sigma(z)}{\partial z}=\frac{1}{\sigma(z)} \frac{\partial \sigma(z)}{\partial z}=\frac{1}{\sigma(z)} \sigma(z)(1-\sigma(z))<br>$$<br>$$<br>\frac{\partial \ln \left(1-f_{w, b}(x)\right)}{\partial w_{i}}=\frac{\partial \ln\left(1-f_{w, b}(x)\right)}{\partial z} \frac{\partial z}{\partial w_{i}}<br>$$<br>$$<br>\frac{\partial \ln (1-\sigma(z))}{\partial z}=-\frac{1}{1-\sigma(z)} \frac{\partial \sigma(z)}{\partial z}=-\frac{1}{1-\sigma(z)} \sigma(z)(1-\sigma(z))<br>$$</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>step1</strong>：<strong>建立模型(Function Set)</strong><br>我们需要赋予Logistic Regression的输出一个意义：模型输出定义为属于C1的概率$P_{w,b}(C_1|x)$，且若$P_{w,b}(C_1|x)&gt;=0.5$，归类为C1;否则，归类于C2。我最近在思考该怎么理解直接赋予Logistic Regression输出概率的逻辑是什么？一个可能的想法是这样：首先Logistic Regression本身是一个分类器，其输出$0&lt;=f_{w,b}(x)&lt;=1$，且当$f_{w,b}(x)&gt;=0.5$时，代表输入数据属于C1；否则C2。直觉上来讲，这个定义是不是就相当于把$f_{w,b}(x)$理解为$P_{w,b}(C_1|x)$，即当前数据属于C1的概率了？？？查了下，网上竟然有人和我有同样的困惑，这说明这确实是个值得讨论的问题，并且好像还可以从数学上证明。。。<br>&nbsp;&nbsp;&nbsp;&nbsp;<strong>step2</strong>：<strong>针对每个函数(function)，利用训练集数据计算拟合度，即描述这个选定函数的好坏。(Loss Function)</strong><br>根据极大似然法原理，为找出最佳模型，我们需要使找出的模型让当前训练集数据出现的概率最大。<br>$$<br>L(w, b)=f_{w, b}\left(x^{1}\right) f_{w, b}\left(x^{2}\right)\left(1-f_{w, b}\left(x^{3}\right)\right) \cdots f_{w, b}\left(x^{N}\right)<br>$$<br>$$w^{<em>}, b^{</em>}=\arg \min <em>{w, b}-\ln L(w, b)$$<br>$$<br>-\ln L(w, b)=\ln f</em>{w, b}\left(x^{1}\right)+\ln f_{w, b}\left(x^{2}\right)+\ln \left(1-f_{w, b}\left(x^{3}\right)\right) \cdots<br>$$<br>定义 $\widehat{y}^{n}=1$，当归类为C1;$\widehat{y}^{n}=0$，当归类为C2。<br>$$<br>-\ln L(w, b)=\sum_{n}-\left[\hat{y}^{n} \ln f_{w, b}\left(x^{n}\right)+\left(1-\hat{y}^{n}\right) \ln \left(1-f_{w, b}\left(x^{n}\right)\right)\right]<br>$$<br>这即是常说的cross entropy。<br>&nbsp;&nbsp;&nbsp;&nbsp;<strong>step3</strong>：<strong>寻找使误差函数最小的函数。</strong><br>$$<br>f_{w, b}(x)=\sigma(z)=1 / 1+\exp (-z)<br>$$<br>$$<br>z=w \cdot x+b=\sum_{i} w_{i} x_{i}+b<br>$$<br>$$<br>\frac{\partial \ln f_{w, b}(x)}{\partial w_{i}}=\frac{\partial \ln f_{w, b}(x)}{\partial z} \frac{\partial z}{\partial w_{i}}<br>$$<br>$$<br>\frac{\partial z}{\partial w_{i}}=x_{i}<br>$$<br>$$<br>\frac{\partial \ln \sigma(z)}{\partial z}=\frac{1}{\sigma(z)} \frac{\partial \sigma(z)}{\partial z}=\frac{1}{\sigma(z)} \sigma(z)(1-\sigma(z))<br>$$<br>$$<br>\frac{\partial \ln \left(1-f_{w, b}(x)\right)}{\partial w_{i}}=\frac{\partial \ln\left(1-f_{w, b}(x)\right)}{\partial z} \frac{\partial z}{\partial w_{i}}<br>$$<br>$$<br>\frac{\partial \ln (1-\sigma(z))}{\partial z}=-\frac{1}{1-\sigma(z)} \frac{\partial \sigma(z)}{\partial z}=-\frac{1}{1-\sigma(z)} \sigma(z)(1-\sigma(z))<br>$$</p>
 <p>$$<br>\frac{-\ln L(w, b)}{\partial w_{i}}=\sum_{n}-\left(\hat{y}^{n}-f_{w, b}\left(x^{n}\right)\right) x_{i}^{n}<br>$$</p>
 <p>如果真的用L2作为Logistic Regression的损失函数，结果会怎样呢？</p>
 <h2 id="3、生成式模型与判别式模型的区别"><a href="#3、生成式模型与判别式模型的区别" class="headerlink" title="3、生成式模型与判别式模型的区别"></a>3、生成式模型与判别式模型的区别</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;参照<a href="https://www.cnblogs.com/nolonely/p/6435213.html" target="_blank" rel="noopener">https://www.cnblogs.com/nolonely/p/6435213.html</a> 的解释：</p>
